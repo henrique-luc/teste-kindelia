@@ -96,10 +96,9 @@ export default function Navbar() {
       <Box display={{ base: "none", md: "flex" }} alignItems="center">
         <Stack spacing={4} mr="20px" w="350px">
           <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<SearchIcon color="#1C1917" />}
-            />
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon color="#1C1917" />
+            </InputLeftElement>
             <Input
               bg="#D4D4D8"
               border="none"
@@ -144,6 +143,7 @@ export default function Navbar() {
               src="images/amostra.webp"
               boxSize="30px"
               borderRadius="100%"
+              alt="icon test"
             ></Image>
           </MenuButton>
           <MenuList>
@@ -250,10 +250,9 @@ export default function Navbar() {
 
                 <Stack spacing={4} mt="20px" w="100%">
                   <InputGroup>
-                    <InputLeftElement
-                      pointerEvents="none"
-                      children={<SearchIcon color="#1C1917" />}
-                    />
+                    <InputLeftElement pointerEvents="none">
+                      <SearchIcon color="#1C1917" />
+                    </InputLeftElement>
                     <Input
                       bg="#D4D4D8"
                       border="none"
@@ -294,6 +293,7 @@ export default function Navbar() {
                       src="images/amostra.webp"
                       boxSize="100px"
                       borderRadius="100%"
+                      alt="icon test"
                     ></Image>
                   </MenuButton>
                   <MenuList>
