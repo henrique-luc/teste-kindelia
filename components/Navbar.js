@@ -16,26 +16,36 @@ import {
   MenuItem,
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
+  useColorModeValue,
+  useDisclosure,
+  useColorMode,
+  IconButton,
 } from "@chakra-ui/react";
-import { SearchIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { useDisclosure } from "@chakra-ui/react";
+import { SearchIcon, HamburgerIcon } from "@chakra-ui/icons";
+
+import { FaMoon, FaSun } from "react-icons/fa";
 
 import { useRef } from "react";
 
 import NextLink from "next/link";
 
+import { useAccount } from "wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
+  const { toggleColorMode } = useColorMode();
+  const SwitchIcon = useColorModeValue(FaSun, FaMoon);
+  const ColorMode = useColorModeValue("#f4f4f5", "#000");
+
   return (
     <Box
-      bg="#f4f4f5"
+      bg={ColorMode}
       boxShadow="0px 5px 5px -2px  #DDDDDE"
       padding="13px"
       position="fixed"
@@ -122,7 +132,10 @@ export default function Navbar() {
         </Menu>
 
         <Stack mr="20px">
-          <Switch colorScheme="grey" />
+          <IconButton
+            icon={<SwitchIcon />}
+            onClick={toggleColorMode}
+          ></IconButton>
         </Stack>
 
         <Menu isLazy>
@@ -180,7 +193,10 @@ export default function Navbar() {
                 alignItems="center"
               >
                 <Stack w="30px">
-                  <Switch colorScheme="grey" />
+                  <IconButton
+                    icon={<SwitchIcon />}
+                    onClick={toggleColorMode}
+                  ></IconButton>
                 </Stack>
 
                 <List
